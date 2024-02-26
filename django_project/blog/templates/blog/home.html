@@ -1,0 +1,16 @@
+{% extends "blog/bash.html" %}
+{% block content %}
+    {% for post in posts %}
+    <div class="media content-section ">
+        <a href="{% url 'post-detail' post.id%}" class="image-link">
+        <img class="rounded-circle article-img"src="{{ post.author.profile.image.url}}"></a>
+        <div class="c12">
+            <h3>{{ post.title }}</a></h3>
+            <h6>{{ post.author}} on {{post.date_posted |date:"F d Y"}}</h6>
+            <h5>{{ post.content }}</h5>
+            <p>For post update and delete click on image </p>
+        </div>    
+    </div>
+    {% endfor %}
+{% endblock content %}
+
